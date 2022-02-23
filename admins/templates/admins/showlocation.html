@@ -1,0 +1,49 @@
+{% extends 'admins/main.html' %}
+
+{% block content %}
+
+
+
+
+<div class="main-content-inner">
+
+
+    <div class="row">
+        <div class="col-md">
+            <div class="card card-body">
+                <h4><strong>Location List</strong></h4>
+            </div>
+            <div class="card card-body">
+                <table class="table">
+                    <tr>
+                        <th>Location ID</th>
+                        <th>Name</th>
+                        <th>Latitude</th>
+                        <th>Longtitude</th>
+                    </tr>
+
+                    {% for i in showlocation %}
+                    <tr>
+                        <td>{{i.Location_id}}</td>
+                        <td>{{i.Location_Name}}</td>
+                        <td>{{i.Latitude}}</td>
+                        <td>{{i.Longtitude}}</td>
+
+                        <td>
+                            <a class="btn btn-sm btn-danger" href="/deletelocation/{{ i.Location_id }}">Delete</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+{% endblock %}

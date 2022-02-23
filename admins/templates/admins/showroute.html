@@ -1,0 +1,43 @@
+{% extends 'admins/main.html' %}
+
+{% block content %}
+
+
+
+
+<div class="main-content-inner">
+
+
+    <div class="row">
+        <div class="col-md">
+            <div class="card card-body">
+                <h4><strong>Route List</strong></h4>
+            </div>
+            <div class="card card-body">
+                <table class="table">
+                    <tr>
+                        <th>Route ID</th>
+                    </tr>
+
+                    {% for i in showroute %}
+                    <tr>
+                        <td>{{i.Route_id}}</td>
+
+                        <td>
+                            <a class="btn btn-sm btn-danger" href="/deleteroute/{{ i.Route_id }}">Delete</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'admins/main.html' %}
+
+{% block content %}
+
+<body>
+
+    <form method="POST" class="post-form" action="/updatedriver/{{update.Bus_Driver_id}}">
+        {% csrf_token %}
+        <div class="container">
+            <br>
+            <div class="form-group row">
+                <label class="col-sm-1 col-form-label"></label>
+                <div class="col-sm-4">
+                    <h3>Update Details</h3>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-4">
+                    <input type="hidden" name="Bus_Driver_id" id="" required maxlength="100" value="{{ form.Bus_Driver_id }}" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="" class="col-form-label">First Name</label>
+                <input class="form-control" type="text" name="Fname" value="{{form.Fname}}"  />
+            </div>
+            <div class="form-group">
+                <label for="" class="col-form-label">Last Name</label>
+                <input class="form-control" type="text" name="Lname" value="{{form.Lname}}" >
+            </div>
+            <div class="form-group">
+                <label for="" class="col-form-label">Email</label>
+                <input class="form-control" type="email" 
+                    name="Email" value="{{form.Email}}" />
+            </div>
+            <div class="form-group">
+                <label for="" class="col-form-label">Contact_Number</label>
+                <input class="form-control" type="tel" 
+                    name="Contact_Number" value="{{form.Contact_Number}}" />
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-1 col-form-label"></label>
+                <div class="col-sm-4">
+                    <button type="submit" class="btn btn-success">Update</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+</body>
+
+<br><br><br><br><br><br><br>
+
+{% endblock %}

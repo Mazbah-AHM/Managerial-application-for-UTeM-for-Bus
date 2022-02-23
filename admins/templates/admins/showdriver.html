@@ -1,0 +1,53 @@
+{% extends 'admins/main.html' %}
+
+{% block content %}
+
+
+
+
+<div class="main-content-inner">
+
+
+    <div class="row">
+        <div class="col-md">
+            <div class="card card-body">
+                <h4><strong>Driver List</strong></h4>
+            </div>
+            <div class="card card-body">
+                <table class="table">
+                    <tr>
+                        <th>Driver ID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Contact Number</th>
+                    </tr>
+
+                    {% for i in driverlist %}
+                    <tr>
+                        <td>{{i.Bus_Driver_id }}</td>
+                        <td>{{i.Fname}}</td>
+                        <td>{{i.Lname}}</td>
+                        <td>{{i.Email}}</td>
+                        <td>{{i.Contact_Number}}</td>
+
+                        <td>
+                            <a class="btn btn-sm btn-info" href="/updatedriver/{{ i.Bus_Driver_id }}"><span
+                                    class="glyphicon glyphicon-pencil">Edit</span></a>
+                            <a class="btn btn-sm btn-danger" href="/deletedriver/{{ i.Bus_Driver_id }}">Delete</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+{% endblock %}

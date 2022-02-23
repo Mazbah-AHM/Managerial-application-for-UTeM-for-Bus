@@ -1,0 +1,67 @@
+{% extends 'admins/main.html' %}
+
+{% block content %}
+
+
+<form method="POST" class="post-form" action="/addschedule/">
+    {% csrf_token %}
+    <div class="main-content-inner">
+
+
+        <div class="row">
+            <div class="col-lg-6 col-ml-12">
+                <div class="row">
+
+                    <div class="col-12 mt-5">
+                        <div class="card">
+                            <div class="col-xl-5 col-md-8 align-items-stretch">
+                                <div class="card-body">
+                                    <div class="col-xl-6 col-md-12 align-items-stretch">
+                                        <h4 class="header-title">Enter Schedule Details</h4>
+                                        <div class="form-group">
+                                            <label for="example-text-input" class="col-form-label">Schedule ID</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="" class="col-form-label">Driver</label>
+                                            <select class="form-control" name="Bus_Driver">
+                                                {% for form in sr %}<option value="{{form.Bus_Driver_id}}">
+                                                    {{form.Fname}}</option>{% endfor %}
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="" class="col-form-label">Route</label>
+                                            <select class="form-control" name="Route">
+                                                {% for form in sw %}<option value="{{form.Route_id}}">
+                                                    {{form.Route_id}}</option>{% endfor %}
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="" class="col-form-label">Date</label>
+                                            <input class="form-control" type="date" name="Date" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="" class="col-form-label">Departure
+                                                Time</label>
+                                            <input class="form-control" type="time" name="Departure_Time">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="" class="col-form-label">Status</label>
+                                            <input class="form-control" type="integer"
+                                                name="Status" />
+                                        </div>
+
+                                        <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4">Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends 'admins/main.html' %}
+
+{% block content %}
+
+
+
+
+<div class="main-content-inner">
+
+
+    <div class="row">
+        <div class="col-md">
+            <div class="card card-body">
+                <h3><strong>Schedule</strong></h3>
+            </div>
+            <div class="card card-body">
+                <table class="table">
+                    <tr>
+                        <th>Schedule No</th>
+                        <th>Bus Driver</th>
+                        <th>Route</th>
+                        <th>Date</th>
+                        <th>Departure Time</th>
+                        <th>Status</th>
+
+                    </tr>
+
+                    {% for i in shows %}
+                    <tr>
+                        <td>{{i.Bus_Driver_Route_id}}</td>
+                        <td>{{i.Bus_Driver}}</td>
+                        <td>{{ i.Route}}</td>
+                        <td>{{i.Date}}</td>
+                        <td>{{i.Departure_Time}}</td>
+                        <td>{{i.Status}}</td>
+
+                        <td>
+                            <a class="btn btn-sm btn-info" href="/updateschedule/{{ i.Bus_Driver_Route_id }}"><span
+                                    class="glyphicon glyphicon-pencil">Edit</span></a>
+                            <a class="btn btn-sm btn-danger"
+                                href="/deleteschedule/{{ i.Bus_Driver_Route_id }}">Delete</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+{% endblock %}

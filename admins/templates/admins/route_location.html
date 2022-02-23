@@ -1,0 +1,74 @@
+{% extends 'admins/main.html' %}
+
+{% block content %}
+
+
+<div class="main-content-inner">
+
+
+
+    <div class="row">
+        <div class="col-lg-6 col-ml-12">
+            <div class="row">
+
+                <div class="col-12 mt-5">
+                    <div class="card">
+                        <div class="col-xl-5 col-md-8 align-items-stretch">
+                            <div class="card-body">
+                                <h3>Add Route Location</h3>
+                                <div class="col-xl-6 col-md-12 align-items-stretch">
+                                    <br>
+
+                                    <form action="/route_location/" method="POST">
+
+
+
+                                        {% csrf_token %}
+
+                                        {% for i in n %}
+
+                                        <div class="card-body">
+                                            <div class="col-xl-6 col-md-12 align-items-stretch">
+                                                <div class="form-group">
+
+                                                    <label for="" class="col-form-label">Location
+                                                        ID</label>
+                                                    <select class="form-control" type="option" name="Location">
+                                                        {% for j in showLoc %} <option value="{{j.Location_id}}">
+                                                            {{j.Location_Name}}</option> {% endfor %}
+                                                    </select>
+
+                                                    <label for="" class="col-form-label">Location
+                                                        Order</label>
+
+                                                    <input class="form-control" type="text" value="" id=""
+                                                        name="Location_Order">
+
+                                                    <label for="" class="col-form-label">Estimated_Time</label>
+                                                    <input class="form-control" type="text" value="" id="time"
+                                                        name="Estimated_Time">
+
+
+
+                                                    <br><br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {% endfor %}
+                                        <br><br>
+
+                                        <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<br><br><br><br><br><br><br>
+
+{% endblock %}

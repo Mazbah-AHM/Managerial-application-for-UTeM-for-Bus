@@ -1,0 +1,53 @@
+{% extends 'admins/main.html' %}
+
+{% block content %}
+
+
+<form method="POST" class="post-form" action="/createbus/">
+    {% csrf_token %}
+    <div class="main-content-inner">
+
+
+        <div class="row">
+            <div class="col-lg-6 col-ml-12">
+                <div class="row">
+
+                    <div class="col-12 mt-5">
+                        <div class="card">
+                            <div class="col-xl-5 col-md-8 align-items-stretch">
+                                <div class="card-body">
+                                    <div class="col-xl-6 col-md-12 align-items-stretch">
+                                        <h4 class="header-title">Enter Bus Details</h4>
+
+                                        <div class="form-group">
+                                            <label for="" class="col-form-label">Bus Number</label>
+                                            <input class="form-control" type="text" name="Bus_id" />
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label for="" class="col-form-label">Driver</label>
+                                            <select class="form-control" name="Bus_Driver">
+                                                {% for form in bd %}<option value="{{form.Bus_Driver_id}}">
+                                                    {{form.Fname}}</option>{% endfor %}
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="" class="col-form-label">Capacity</label>
+                                            <input class="form-control" type="number" name="Capacity" />
+                                        </div>
+                                       
+                                        <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4">Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+
+{% endblock %}

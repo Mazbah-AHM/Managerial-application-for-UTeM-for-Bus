@@ -1,0 +1,63 @@
+{% extends 'admins/main.html' %}
+
+{% block content %}
+
+
+
+
+<div class="main-content-inner">
+
+
+    <div class="row">
+        <div class="col-md">
+            <div class="card card-body">
+                <h3><strong>Requests</strong></h3>
+            </div>
+            <div class="card card-body">
+                <table class="table">
+                    <tr>
+                        <th>Reservation ID</th>
+                        <th>Student</th>
+                        <th>Bus Driver Route ID</th>
+                        <th>From</th>
+                        <th>To</th>
+                        <th>Departure Time</th>
+                        <th>Arrival Time</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                    </tr>
+
+                    {% for i in reservebus %}
+                    <tr>
+                        <td>{{i.Reservation_id }}</td>
+                        <td>{{i.Student}}</td>
+                        <td>{{i.Bus_Driver_Route_id}}</td>
+                        <td>{{i.From_Location_id}}</td>
+                        <td>{{i.To_Location_id}}</td>
+                        <td>{{i.Departure_Time}}</td>
+                        <td>{{i.Arrival_Time}}</td>
+                        <td>{{i.Date}}</td>
+                        <td>{{i.Status}}</td>
+
+
+                        <td>
+                            <a class="btn btn-sm btn-danger"
+                                href="/deletereservation/{{ i.Reservation_id }}">Delete</a>
+                        </td>
+
+                    </tr>
+                    {% endfor %}
+
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+{% endblock %}

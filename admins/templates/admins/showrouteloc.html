@@ -1,0 +1,53 @@
+{% extends 'admins/main.html' %}
+
+{% block content %}
+
+
+
+
+<div class="main-content-inner">
+
+
+    <div class="row">
+        <div class="col-md">
+            <div class="card card-body">
+                <h4><strong>Route Location List</strong></h4>
+            </div>
+            <div class="card card-body">
+                <table class="table">
+                    <tr>
+                        <th>Route Location ID</th>
+                        <th>Route ID</th>
+                        <th>Location ID</th>
+                        <th>Location Order</th>
+                        <th>Estimated Time</th>
+                    </tr>
+
+                    {% for i in showrouteloc %}
+                    <tr>
+                        <td>{{i.Route_Location_id}}</td>
+                        <td>{{i.Route}}</td>
+                        <td>{{i.Location}}</td>
+                        <td>{{i.Location_Order}}</td>
+                        <td>{{i.Estimated_Time}}</td>
+
+
+                        <td>
+                            <a class="btn btn-sm btn-danger"
+                                href="/deleterouteloc/{{ i.Route_Location_id }}">Delete</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+{% endblock %}

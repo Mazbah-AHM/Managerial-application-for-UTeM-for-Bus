@@ -1,0 +1,51 @@
+{% extends 'admins/main.html' %}
+
+{% block content %}
+
+
+
+
+<div class="main-content-inner">
+
+
+    <div class="row">
+        <div class="col-md">
+            <div class="card card-body">
+                <h4><strong>Bus List</strong></h4>
+            </div>
+            <div class="card card-body">
+                <table class="table">
+                    <tr>
+                        <th>Bus ID</th>
+                        <th>Capacity</th>
+                        <th>Bus Driver ID</th>
+                    </tr>
+
+                    {% for i in buslist %}
+                    <tr>
+                        <td>{{i.Bus_id }}</td>
+                        <td>{{i.Capacity}}</td>
+                        <td>{{i.Bus_Driver}}</td>
+
+
+                        <td>
+                            <a class="btn btn-sm btn-info" href="/updatebus/{{ i.Bus_id }}"><span
+                                    class="glyphicon glyphicon-pencil">Edit</span></a>
+                            <a class="btn btn-sm btn-danger" href="/deletebus/{{ i.Bus_id }}">Delete</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+{% endblock %}

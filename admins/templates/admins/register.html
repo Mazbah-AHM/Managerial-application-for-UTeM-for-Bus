@@ -1,0 +1,109 @@
+{% load static %}
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>Sign up</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" type="image/png" href="/static/images/icon/favicon.ico">
+	<link rel="stylesheet" href="/static/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/static/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/static/css/themify-icons.css">
+	<link rel="stylesheet" href="/static/css/metisMenu.css">
+	<link rel="stylesheet" href="/static/css/owl.carousel.min.css">
+	<link rel="stylesheet" href="/static/css/slicknav.min.css">
+
+	<link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css"
+		media="all" />
+
+	<link rel="stylesheet" href="/static/css/typography.css">
+	<link rel="stylesheet" href="/static/css/default-css.css">
+	<link rel="stylesheet" href="/static/css/styles.css">
+	<link rel="stylesheet" href="/static/css/responsive.css">
+
+	<script src="/static/js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+
+<body>
+
+	<div id="preloader">
+		<div class="loader"></div>
+	</div>
+
+	<div class="login-area">
+		<div class="container">
+			<div class="login-box ptb--100">
+				<form method="POST" action="">
+					{% csrf_token %}
+					<div class="login-form-head">
+						<h4>Sign up</h4>
+						<p>Hello there, Sign up and Join with Us</p>
+					</div>
+					<div class="login-form-body">
+						<div class="form-gp">
+							<i class="ti-user"></i>
+							<div class="text-danger"></div>
+							{{form.username}}
+						</div>
+						<div class="form-gp">
+							<i class="ti-email"></i>
+							<div class="text-danger"></div>
+							{{form.email}}
+						</div>
+						<div class="form-gp">
+							<i class="ti-lock"></i>
+							<div class="text-danger"></div>
+							{{form.password1}}
+						</div>
+						<div class="form-gp">
+							<i class="ti-lock"></i>
+							<div class="text-danger"></div>
+							{{form.password2}}
+						</div>
+						<div class="submit-btn-area">
+							<button id="form_submit" type="submit">Submit <i class="ti-arrow-right"></i></button>
+						</div>
+						{{form.errors}}
+						<div class="form-footer text-center mt-5">
+							<p class="text-muted">Don't have an account? <a href="{% url 'login' %}">Sign in</a></p>
+						</div>
+					</div>
+
+				</form>
+			</div>
+
+		</div>
+	</div>
+	</div>
+
+
+
+	<script src="/static/js/vendor/jquery-2.2.4.min.js"></script>
+
+	<script src="/static/js/popper.min.js"></script>
+	<script src="/static/js/bootstrap.min.js"></script>
+	<script src="/static/js/owl.carousel.min.js"></script>
+	<script src="/static/js/metisMenu.min.js"></script>
+	<script src="/static/js/jquery.slimscroll.min.js"></script>
+	<script src="/static/js/jquery.slicknav.min.js"></script>
+
+	<script src="/static/js/plugins.js"></script>
+	<script src="/static/js/scripts.js"></script>
+	<script>
+
+		var form_fields = document.getElementsByTagName('input')
+		form_fields[1].placeholder = 'Staff ID..';
+		form_fields[2].placeholder = 'Email..';
+		form_fields[3].placeholder = 'Enter password...';
+		form_fields[4].placeholder = 'Confirm Password...';
+
+
+		for (var field in form_fields) {
+			form_fields[field].className += ' form-control'
+		}
+	</script>
+</body>
+
+</html>

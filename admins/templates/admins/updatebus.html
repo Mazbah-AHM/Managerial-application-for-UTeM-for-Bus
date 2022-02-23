@@ -1,0 +1,47 @@
+{% extends 'admins/main.html' %}
+
+{% block content %}
+
+<body>
+
+    <form method="POST" class="post-form" action="/updatebus/{{update.Bus_id}}">
+        {% csrf_token %}
+        <div class="container">
+            <br>
+            <div class="form-group row">
+                <label class="col-sm-1 col-form-label"></label>
+                <div class="col-sm-4">
+                    <h3>Update Details</h3>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="" class="col-form-label">Bus Number</label>
+                <input class="form-control" type="text" name="Bus_id" value="{{form.Bus_id}}" />
+            </div>
+            <div class="form-group">
+                <label for="" class="col-form-label">Driver</label>
+                <select class="form-control" name="Bus_Driver">
+                    {% for form in bdi %}<option value="{{form.Bus_Driver_id}}">
+                        {{form.Fname}}</option>{% endfor %}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="" class="col-form-label">Capacity</label>
+                <input class="form-control" type="number" name="Capacity" value="{{form.Capacity}}" />
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-1 col-form-label"></label>
+                <div class="col-sm-4">
+                    <button type="submit" class="btn btn-success">Update</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+</body>
+
+<br><br><br><br><br><br><br>
+
+{% endblock %}

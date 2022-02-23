@@ -1,0 +1,66 @@
+{% extends 'admins/main.html' %}
+
+{% block content %}
+
+<body>
+
+    <form method="POST" class="post-form" action="/updateschedule/{{update.Bus_Driver_Route_id}}">
+        {% csrf_token %}
+        <div class="container">
+            <br>
+            <div class="form-group row">
+                <label class="col-sm-1 col-form-label"></label>
+                <div class="col-sm-4">
+                    <h3>Update Details</h3>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-4">
+                    <input type="hidden" name="Bus_Driver_Route_id" id="" required maxlength="100" value="{{ form.Bus_Driver_Route_id }}" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="" class="col-form-label">Driver</label>
+                <select class="form-control" name="Bus_Driver">
+                    {% for form in sr %}<option value="{{form.Bus_Driver_id}}">
+                        {{form.Fname}}</option>{% endfor %}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="" class="col-form-label">Route</label>
+                <select class="form-control" name="Route">
+                    {% for form in sw %}<option value="{{form.Route_id}}">
+                        {{form.Route_id}}</option>{% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="" class="col-form-label">Date</label>
+                <input class="form-control" type="date" name="Date" value="{{form.Date}}"  />
+            </div>
+            <div class="form-group">
+                <label for="" class="col-form-label">Departure
+                    Time</label>
+                <input class="form-control" type="time" name="Departure_Time" value="{{form.Departure_Time}}" >
+            </div>
+            <div class="form-group">
+                <label for="" class="col-form-label">Status</label>
+                <input class="form-control" type="integer" 
+                    name="Status" value="{{form.Status}}" />
+            </div>
+
+
+            <div class="form-group row">
+                <label class="col-sm-1 col-form-label"></label>
+                <div class="col-sm-4">
+                    <button type="submit" class="btn btn-success">Update</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+</body>
+
+<br><br><br><br><br><br><br>
+
+{% endblock %}
